@@ -3,7 +3,7 @@ const http = require("http")
 // Require fs module
 const fs = require("fs")
 // Require minimist module (make sure you install this one via npm).
-const args = request("minimist")(process.argv.slice(2))
+const args = require("minimist")(process.argv.slice(2))
 // Use minimist to process one argument `--port=` on the command line after `node server.js`.
 
 // Define allowed argument name 'port'.
@@ -15,7 +15,7 @@ const port = args.port || process.env.PORT || 3000
 // Use the documentation for the Node.js `fs` module. 
 // The function must read a file located at `./www/index.html` and do some stuff with it.
 // The stuff that should be inside this function is all below.
-fs.readFile("./www/index.html", "utf8",(err,data)=>{
+fs.readFile("./www/index.html", "utf8",(err,data)=>{})
 // If there is an error, put it on the console error, return, and exit with error code 1. 
 // Do not be nice about exiting.
 
@@ -31,7 +31,6 @@ const server = http.createServer((req,res)=>{})
 
 
 
-})
 // Use the documentation for the node.js http module. 
 // The function should have three responses: 
 // 1. status code 200, 
