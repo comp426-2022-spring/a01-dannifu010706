@@ -15,19 +15,23 @@ const port = args.port || process.env.PORT || 3000
 // Use the documentation for the Node.js `fs` module. 
 // The function must read a file located at `./www/index.html` and do some stuff with it.
 // The stuff that should be inside this function is all below.
-fs.readFile("./www/index.html", "utf8",(err,data)=>{})
+fs.readFile("./www/index.html", "utf8",(err,data)=>{
 // If there is an error, put it on the console error, return, and exit with error code 1. 
 // Do not be nice about exiting.
-
+if(err){
+    console.error(err)
+    return 
+    process.exit(1)
+}
 
 
 
 
 // Define a const `server` as an arrow function using http.createServer. 
-const server = http.createServer((req,res)=>{})
+const server = http.createServer((req,res)=>{
   res.statusCode=200
   res.setHeader('Content-Type','text/html')
-  res.end('<h1>Hello, World!<h1>')
+  res.end(data)})
 
 
 
@@ -38,7 +42,7 @@ const server = http.createServer((req,res)=>{})
 // 3. end with the data that you are reading in from ./www/index.html.
 
 server.listen(port,() =>{
-console.log(`Server running at port ${port}`)
+console.log(`Server running at port ${port}`)})
 
 
 })
